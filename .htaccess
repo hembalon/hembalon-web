@@ -8,16 +8,18 @@ RewriteRule ^index\.html$ / [R=301,L]
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*)$ $1.html [NC,L]
-RewriteRule ^en/home\.html$ /en/ [R=301,L]
+
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
+  RewriteBase /
 
-  # Redirect non-www to www for both HTTP and HTTPS
-  RewriteCond %{HTTP_HOST} !^www\. [NC]
-  RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+  # Redirect /en/home.html to /en/
+  RewriteRule ^en/home\.html$ /en/ [R=301,L]
 
-  # Redirect HTTP to HTTPS
-  RewriteCond %{HTTPS} off
-  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+  # Rewrite requests to /en/ to /en/home.html
+  RewriteRule ^en/$ /en/home.html [L]
+
+  # Other rules for your website go here...
+
 </IfModule>
