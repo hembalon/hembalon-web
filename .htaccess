@@ -10,10 +10,3 @@ RewriteCond %{REQUEST_FILENAME}\.html -f
 RewriteRule ^(.*)$ $1.html [NC,L]
 
 
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteBase /
-
-  # Redirect /en/home.html to /en/
-  RewriteRule ^en/home\.html$ /en/ [R=301,L]
-</IfModule>
