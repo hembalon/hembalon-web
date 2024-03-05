@@ -16,10 +16,4 @@ RewriteRule ^(.*)$ $1.html [NC,L]
 
   # Redirect /en/home.html to /en/
   RewriteRule ^en/home\.html$ /en/ [R=301,L]
-
-  # Rewrite requests to /en/ to /en/home.html
-  RewriteRule ^en/$ /en/home.html [L]
-
-  # Other rules for your website go here...
-
 </IfModule>
