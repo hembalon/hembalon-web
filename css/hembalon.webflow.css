@@ -2131,6 +2131,7 @@ p {
   display: flex;
   position: absolute;
   right: -95px;
+  top: 320px;
 }
 
 .div-block-6:hover {
